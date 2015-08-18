@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backbone CEP</title>
+</head>
+<body>
+    <form>
+        <input type="text" name="cep" id="cep" placeholder="cep">
+        <input type="text" name="endereco" id="endereco" placeholder="endereco">
+        <button type="button" id="enviar">Enviar</button>
+    </form>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/backbone/backbone-min.js"></script>
+    <script src="assets/js/views/cep-view.js"></script>
+    <script>
+        $(document).ready(function() {
+            var view = new CepView();
+            view.render();
+            //$('body').append(postView.el);
+        });
+    </script>
+</body>
+</html>

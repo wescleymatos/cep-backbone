@@ -1,0 +1,23 @@
+{
+  "name": "CEP Module",
+  "version": "0.0.1",
+  "description": "Create a module to DRY at the form",
+  "keywords": [
+    "cep"
+  ],
+  "authors": [
+    "Wescley Matos"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.2.1",
+    "jquery": "~2.1.4"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "distrito",
+  "version": "1.0.0",
+  "description": "Sistema de Membros - Módulo Distrito",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "bower": "^1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://wescleymatos@bitbucket.org/wescleymatos/district-module.git"
+  },
+  "author": "Wescley Matos",
+  "license": "ISC"
+}
