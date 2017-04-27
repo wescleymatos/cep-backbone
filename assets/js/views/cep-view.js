@@ -1,35 +1,39 @@
-var CepView = Backbone.View.extend({
-    el: $('form'),
-    //tagName: 'form',
-    //className: 'page-posts',
-    //template: _.template('<a href="#" id="add-button">Add Post</a><h2><%= title %></h2><p><%= content %></p><h3>Comments</h3><label>Username: <input id="username" type="text" /></label>'),
-    events: {
-        'click #enviar' : 'setForm',
-        'blur #cep' : 'showCep'
+var Cep = Backbone.Model.extend({
+    url: function () {
+        return 'http://viacep.com.br/ws/'+this.cep+'/json/';
     },
-
-    initialize: function() {
-        this.model = new CepModel();
-    },
-
-    render: function() {
-        //this.$el.html(this.template({title: "Nome do Post", content: "Conteúdo do Post"}));
-    },
-
-    setForm: function() {
-        this.$el[0]['cep'].value = this.model.get('cep');
-    },
-
-    showCep: function() {
-        this.model.set('cep', '60080150')
-        console.log(this.model.get('cep'));
+    defaults: {
+        cep: ''
     }
 });
 
+var CepView = Backbone.View.extend({
+    el: $('form'),
+    template: Handlebars.compile($("#template").html()),
+    events: {
+        'keyup [name="cep"]': 'getAddress',
+        'blur [name="cep"]': 'getAddress'
+    },
 
-var CepModel = Backbone.Model.extend({
-    defaults: {
-        cep: '59080100',
-        endereco: 'av. airton senna'
+    initialize: function() {
+        this.model = new Cep();
+        this.model.on('change', this.render.bind(this));
+    },
+
+    render: function() {
+        var viewContent = this.template(this.model.toJSON());
+        this.$el.html(viewContent);
+    },
+    getAddress: function(e) {
+        var cep = e.target;
+
+        if (cep.value.length === 9) {
+            this.model.cep = cep.value;
+            this.model.fetch();
+
+            return;
+        }
+
+        this.model.clear();
     }
 });

@@ -5,22 +5,24 @@
     <title>Backbone CEP</title>
 </head>
 <body>
-    <form>
-        <input type="text" name="cep" id="cep" placeholder="cep">
-        <input type="text" name="endereco" id="endereco" placeholder="endereco">
-        <button type="button" id="enviar">Enviar</button>
-    </form>
+    <form></form>
+
+    <script id="template" type="text/x-handlebars-template">
+        <input type="text" pattern="[0-9]{5}-[0-9]{3}" name="cep" maxlength="9" placeholder="cep" value="{{cep}}">
+        <input type="text" name="logradouro" placeholder="logradouro" value="{{logradouro}}">
+        <input type="text" name="localidade" placeholder="localidade" value="{{localidade}}">
+        <input type="text" name="uf" placeholder="uf" value="{{uf}}">
+    </script>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore-min.js"></script>
     <script src="bower_components/backbone/backbone-min.js"></script>
+    <script src="bower_components/handlebars/handlebars.min.js"></script>
     <script src="assets/js/views/cep-view.js"></script>
     <script>
-        $(document).ready(function() {
-            var view = new CepView();
-            view.render();
-            //$('body').append(postView.el);
-        });
+        var view = new CepView();
+        view.render();
+        //$('body').append(postView.el);
     </script>
 </body>
 </html>
