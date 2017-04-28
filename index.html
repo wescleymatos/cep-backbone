@@ -5,74 +5,64 @@
     <title>Backbone CEP</title>
 
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
 </head>
 <body>
-    <div id="app" class="container">
+    <div class="container">
         <div class="header clearfix">
-            <h3 class="text-muted">Componente CEP - Vue JS</h3>
+            <h3 class="text-muted">Backbone</h3>
         </div>
         <div class="jumbotron">
             <fieldset>
-                <legend>Endereço:</legend>
-                <div>
-                    <p class="text-danger" style="display: none;">Não foi encontrado um endereço para este CEP.</p>
-
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label>CEP</label>
-                            <i class="fa fa-spinner fa-pulse fa-fw" style="top: 32px; position: relative; left: 180px; display: none;"></i>
-                            <input id="cep" pattern="[0-9]{5}-[0-9]{3}" name="cep" maxlength="9" class="form-control" type="text">
-                        </div>
-                        <div class="col-md-2">
-                            <label>Número</label>
-                            <input id="numero" name="numero" class="form-control" type="text">
-                        </div>
-                        <div class="col-md-4">
-                            <label>Cidade</label>
-                            <input id="localidade" name="localidade" class="form-control" type="text">
-                        </div>
-                        <div class="col-md-3">
-                            <label>UF</label>
-                            <input id="uf" name="uf" class="form-control" type="text">
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label>Bairro</label>
-                            <input id="bairro" name="bairro" class="form-control" type="text">
-                        </div>
-                        <div class="col-md-4">
-                            <label>Logradouro</label>
-                            <input id="logradouro" name="logradouro" class="form-control" type="text">
-                        </div>
-                        <div class="col-md-4">
-                            <label>Complemento</label>
-                            <input id="complemento" class="form-control" type="text">
-                        </div>
-                    </div>
-                </div>
+                <div id="app"></div>
             </fieldset> 
         </div> 
         <footer class="footer"><p>© 2016 Company, Inc.</p></footer>
     </div>
 
     <script id="template" type="text/x-handlebars-template">
-        <input type="text" pattern="[0-9]{5}-[0-9]{3}" name="cep" maxlength="9" placeholder="cep" value="{{cep}}">
-        <input type="text" name="logradouro" placeholder="logradouro" value="{{logradouro}}">
-        <input type="text" name="localidade" placeholder="localidade" value="{{localidade}}">
-        <input type="text" name="uf" placeholder="uf" value="{{uf}}">
+        <p class="text-danger hidden">Não foi encontrado um endereço para este CEP.</p>
+        <div class="row">
+            <div class="col-md-3">
+                <label>CEP</label>
+                <i class="fa fa-spinner fa-pulse fa-fw" style="top: 32px; position: relative; left: 180px; display: none;"></i>
+                <input id="cep" pattern="[0-9]{5}-[0-9]{3}" name="cep" value="{{cep}}" maxlength="9" class="form-control" type="text">
+            </div>
+            <div class="col-md-2">
+                <label>Número</label>
+                <input id="numero" name="numero" class="form-control" value="{{numero}}" type="text">
+            </div>
+            <div class="col-md-4">
+                <label>Cidade</label>
+                <input id="localidade" name="localidade" class="form-control" value="{{localidade}}" type="text">
+            </div>
+            <div class="col-md-3">
+                <label>UF</label>
+                <input id="uf" name="uf" class="form-control" value="{{uf}}" type="text">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <label>Bairro</label>
+                <input id="bairro" name="bairro" value="{{bairro}}" class="form-control" type="text">
+            </div>
+            <div class="col-md-4">
+                <label>Logradouro</label>
+                <input id="logradouro" name="logradouro" value="{{logradouro}}" class="form-control" type="text">
+            </div>
+            <div class="col-md-4">
+                <label>Complemento</label>
+                <input id="complemento" class="form-control" value="{{complemento}}" type="text">
+            </div>
+        </div>
     </script>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore-min.js"></script>
     <script src="bower_components/backbone/backbone-min.js"></script>
     <script src="bower_components/handlebars/handlebars.min.js"></script>
-    <script src="assets/js/views/cep-view.js"></script>
-    <script>
-        var view = new CepView();
-        view.render();
-        //$('body').append(postView.el);
-    </script>
+    <script src="cep-component.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
