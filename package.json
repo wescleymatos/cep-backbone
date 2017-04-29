@@ -1,7 +1,7 @@
 {
   "name": "distrito",
   "version": "1.0.0",
-  "description": "Sistema de Membros - Módulo Distrito",
+  "description": "Estudo para criar um componente de preenchimento de formulário pela consulta de cep em API externa",
   "main": "index.js",
   "directories": {
     "test": "tests"
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://wescleymatos@bitbucket.org/wescleymatos/district-module.git"
+    "url": "https://github.com/wescleymatos/cep-backbone.git"
   },
   "author": "Wescley Matos",
   "license": "ISC"
