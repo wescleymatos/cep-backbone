@@ -15,11 +15,9 @@ var Cep = Backbone.Model.extend({
 
 var CepView = Backbone.View.extend({
     el: $('#app'),
-
     template: Handlebars.compile($('#template').html()),
     events: {
-        'keyup [name="cep"]': 'getAddress',
-        //'blur [name="cep"]': 'getAddress'
+        'keyup [name="cep"]': 'getAddress'
     },
     initialize: function() {
         this.model = new Cep();
@@ -32,16 +30,20 @@ var CepView = Backbone.View.extend({
             endereco = this.model.defaults;
             endereco.cep = this.model.cep;
         }
-        
+
         this.$el.html(this.template(endereco));
     },
     getAddress: function(e) {
-        var cep = e.target;
-        if (cep.value.length === 9) {
-            this.model.cep = cep.value;
-            this.model.fetch();
+        var inputCep = e.target;
+        if (inputCep.value.length === 9) {
+            inputCep.previousElementSibling.classList.toggle('invisible');
+
+            this.model.cep = inputCep.value;
+            this.model.fetch().done(function (result) {
+                if (result.erro) this.el.querySelector('p').classList.toggle('invisible');
+            }.bind(this));
         }
 
-        if (cep.value.length === 0) this.model.clear();
+        if (inputCep.value.length === 0) this.model.clear();
     }
 });

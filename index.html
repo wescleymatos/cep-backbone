@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Backbone CEP</title>
 
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-
 </head>
 <body>
     <div class="container">
@@ -15,17 +15,17 @@
         <div class="jumbotron">
             <fieldset>
                 <div id="app"></div>
-            </fieldset> 
-        </div> 
+            </fieldset>
+        </div>
         <footer class="footer"><p>© 2016 Company, Inc.</p></footer>
     </div>
 
     <script id="template" type="text/x-handlebars-template">
-        <p class="text-danger hidden">Não foi encontrado um endereço para este CEP.</p>
+        <p class="text-danger invisible">Não foi encontrado um endereço para este CEP.</p>
         <div class="row">
             <div class="col-md-3">
                 <label>CEP</label>
-                <i class="fa fa-spinner fa-pulse fa-fw" style="top: 32px; position: relative; left: 180px; display: none;"></i>
+                <i class="fa fa-spinner fa-pulse fa-fw invisible" style="top: 32px; position: relative; left: 180px;"></i>
                 <input id="cep" pattern="[0-9]{5}-[0-9]{3}" name="cep" value="{{cep}}" maxlength="9" class="form-control" type="text">
             </div>
             <div class="col-md-2">
