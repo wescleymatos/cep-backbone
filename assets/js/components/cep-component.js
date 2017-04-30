@@ -14,7 +14,7 @@ var Cep = Backbone.Model.extend({
 });
 
 var CepView = Backbone.View.extend({
-    el: $('#app'),
+    el: '#app',
     template: Handlebars.compile($('#template').html()),
     events: {
         'keyup [name="cep"]': 'getAddress'
